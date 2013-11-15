@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public interface IPowerupType{
 
-	void runPowerup(playerMove player);
+	void runPowerup(PlayerMove player);
 
 }

@@ -23,6 +23,7 @@ public class cameraMove : MonoBehaviour {
 	samples = new float[qSamples];
     spectrum = new float[qSamples];
 	txtIngameScore = (GameObject)Instantiate(Resources.Load("txtIngameScore"),new Vector3(1,0,0),Quaternion.identity);
+	SceneData.Start();
 	}
 	
 	void AnalyzeSound(){
@@ -65,7 +66,7 @@ public class cameraMove : MonoBehaviour {
 	}
 	
 	//Hard Y-Value to bypass shacky camera when moving 
-	Vector3 playerPos = GameObject.Find("player(Clone)").transform.position;
+	Vector3 playerPos = SceneData.GetInstance().goPlayer.transform.position;
 	playerPos.y = -5;
 	
 	//Focus camera on the player and move the camera to the beat

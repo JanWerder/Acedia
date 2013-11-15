@@ -5,9 +5,8 @@ public class JumppadBehaviour : MonoBehaviour {
 
 	private GameObject goPlayer;
 
-	// Use this for initialization
 	void Start () {
-		goPlayer = GameObject.Find("player(Clone)");
+		goPlayer = SceneData.GetInstance().goPlayer;
 	
 	}
 	

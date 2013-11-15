@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class powerup : MonoBehaviour {
@@ -7,17 +7,15 @@ public class powerup : MonoBehaviour {
 	//feature
 	private string feature = "";
 	public bool destroyed = false;
-	
-	private GameObject thePlayer;
+
 	private IPowerupType powerupType;
-	playerMove player;
+	PlayerMove playerMove;
 	
 	// Use this for initialization
 	void Start () {
 		maincameraScript = ((cameraMove)Camera.main.gameObject.GetComponent<cameraMove>());
-		
-		thePlayer = GameObject.Find("player(Clone)");
-    	player = thePlayer.GetComponent<playerMove>();
+
+    	playerMove = SceneData.GetInstance().goPlayer.GetComponent<PlayerMove>();
 		
 		int number = Random.Range(1,4);
 			
@@ -51,7 +49,7 @@ public class powerup : MonoBehaviour {
 		{
 			//Player collected powerup
 				
-			powerupType.runPowerup(player);
+			powerupType.runPowerup(playerMove);
 			
 			//Delete powerup
 			destroyPowerup();

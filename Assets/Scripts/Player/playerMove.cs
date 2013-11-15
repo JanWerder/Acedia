@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class playerMove : MonoBehaviour {
+public class PlayerMove : MonoBehaviour {
 
 	void Start () {
 		maincameraScript = ((cameraMove)Camera.main.gameObject.GetComponent<cameraMove>());

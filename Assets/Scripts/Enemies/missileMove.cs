@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class missileMove : MonoBehaviour {
@@ -6,8 +6,7 @@ public class missileMove : MonoBehaviour {
 	private GameObject warningText;
 	public GameObject selfObject;
 	private cameraMove maincameraScript;
-	private GameObject thePlayer;
-	playerMove player;
+	PlayerMove playerMove;
 	
 	// Use this for initialization
 	void Start () {
@@ -15,8 +14,8 @@ public class missileMove : MonoBehaviour {
 		
 	warningText = (GameObject)Instantiate(Resources.Load("mark"), new Vector3(this.transform.position.x-0.3f, transform.position.y-14.49f, this.transform.position.z+0.5f),Quaternion.identity * Quaternion.AngleAxis(90, new Vector3(1,0,0)));
 		
-	thePlayer = GameObject.Find("player(Clone)");
-    player = thePlayer.GetComponent<playerMove>();
+	
+    playerMove = SceneData.GetInstance().goPlayer.GetComponent<PlayerMove>();
     
 	}
 	
@@ -40,11 +39,11 @@ public class missileMove : MonoBehaviour {
 		if(collision.collider.gameObject.name == "player(Clone)" && maincameraScript.isRunning)
 		{
 			//check if player is invincible
-			if(player.playerInvincible == false)
+			if(playerMove.playerInvincible == false)
 			{
 				//The Rocket just hit the player
 				Instantiate(Resources.Load("txtGameover"));
-				player.playerAlive = false;
+				playerMove.playerAlive = false;
 			}
 			else
 			{

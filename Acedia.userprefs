@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\States\endlessMode.cs">
+    <Files>
+      <File FileName="Assets\Scripts\SceneData.cs" Line="15" Column="4" />
+      <File FileName="Assets\Scripts\cameraMove.cs" Line="69" Column="1" />
+      <File FileName="Assets\Scripts\Enemies\missileMove.cs" Line="11" Column="2" />
+      <File FileName="Assets\Scripts\States\endlessMode.cs" Line="82" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

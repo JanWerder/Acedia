@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class BonusPoints : MonoBehaviour, IPowerupType {
+public class BonusPoints : IPowerupType {
 	
-	public void runPowerup(playerMove player){
+	public void runPowerup(PlayerMove player){
 		
 		//Raise the score by 1000 for collecting
 		((cameraMove)Camera.main.gameObject.GetComponent<cameraMove>()).ingameScore += 1000;
@@ -11,7 +11,7 @@ public class BonusPoints : MonoBehaviour, IPowerupType {
 		//show points
 		if (GameObject.Find("txtplusPoints(Clone)") == null)
 		{
-			Instantiate(Resources.Load("txtinfo"));
+			GameObject.Instantiate(Resources.Load("txtinfo"));
 		}
 		GameObject.Find("txtinfo(Clone)").guiText.text = "+ 1000";
 	}
