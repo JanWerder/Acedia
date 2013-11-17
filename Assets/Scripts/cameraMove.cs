@@ -23,7 +23,6 @@ public class cameraMove : MonoBehaviour {
 	samples = new float[qSamples];
     spectrum = new float[qSamples];
 	txtIngameScore = (GameObject)Instantiate(Resources.Load("txtIngameScore"),new Vector3(1,0,0),Quaternion.identity);
-	SceneData.Start();
 	}
 	
 	void AnalyzeSound(){

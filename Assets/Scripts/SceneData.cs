@@ -14,12 +14,13 @@ public class SceneData: MonoBehaviour{
 			instance = (SceneData)GameObject.FindObjectOfType(typeof(SceneData));
 			if (!instance)
 				Debug.LogError("There needs to be one active v script on a GameObject in your scene.");
+			instance.Start();
 		}
 		
 		return instance;
 	}
 
-	public static void Start () {
+	public void Start () {
 		SceneData.GetInstance().goPlayer = GameObject.Find("player(Clone)");	
 	}
 
