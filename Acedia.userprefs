@@ -1,23 +1,24 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\PlayerMove.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\States\levelMode.cs">
     <Files>
+      <File FileName="Assets\Scripts\cameraMove.cs" Line="68" Column="40" />
       <File FileName="Assets\Scripts\Player\PlayerMove.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SceneData.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\cameraMove.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemies\missileMove.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\States\endlessMode.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SceneData.cs" Line="14" Column="15" />
+      <File FileName="Assets\Scripts\cameraMove.cs" Line="32" Column="34" />
+      <File FileName="Assets\Scripts\Enemies\missileMove.cs" Line="20" Column="3" />
+      <File FileName="Assets\Scripts\States\endlessMode.cs" Line="13" Column="15" />
       <File FileName="Assets\Scripts\Enemies\missileLaunch.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Powerups\PowerupSprint.cs" Line="11" Column="3" />
+      <File FileName="Assets\Scripts\Powerups\PowerupSprint.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Powerups\powerupspawn.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Powerups\powerup.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\States\gameoverShow.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\States\levelMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\States\levelMode.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\States\menu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Tiles\JumppadBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Tiles\JumppadBehaviour.cs" Line="15" Column="97" />
       <File FileName="Assets\Scripts\Powerups\BonusPoints.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Powerups\PowerupInvincible.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\States\levelMode.cs" Line="65" Column="56" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

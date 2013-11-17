@@ -12,6 +12,19 @@ public class levelMode: MonoBehaviour {
 	private ArrayList spawnedTiles;
 	private float dropTime;
 
+	private int parseCounter = 1;
+
+	//Recursive! Be careful! Do not feed!
+	private int ParseLength(string c){
+
+		bool isNumeric = Regex.IsMatch(c.Substring(0,parseCounter), @"^[0-9]+$");
+		if(isNumeric){
+			parseCounter++;
+			ParseLength(c);
+		}
+		return parseCounter-1;
+
+	}
 	
 	// Use this for initialization
 	void Start () {
@@ -48,7 +61,10 @@ public class levelMode: MonoBehaviour {
 				if(currentline.Contains("jumppads")){
 					MatchCollection match = Regex.Matches(currentline.Substring(9), "[0-9][,][0-9]");
 					foreach (Match c in match){
-						Vector2 co = new Vector2(float.Parse(c.Value.Substring(0,1)), float.Parse(c.Value.Substring(2)));
+						//long coordinate check
+						int coordinateLength = this.ParseLength(c.Value);
+						//+1 for comma
+						Vector2 co = new Vector2(float.Parse(c.Value.Substring(0,coordinateLength)), float.Parse(c.Value.Substring(coordinateLength+1)));
 						Instantiate(Resources.Load("jumppad"),new Vector3(co.x,-4.5f,co.y),Quaternion.identity * Quaternion.Euler(new Vector3(-90,0,0)));
 						//TODO: Jump via coordinates or collision??
 					}
