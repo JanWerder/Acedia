@@ -30,6 +30,8 @@ public class PlayerMove : MonoBehaviour {
 	int SwipeID = -1;
 	float minMovement = 20.0f;
 	Vector2 delta;
+
+	int layerMask = 0 << 2;
 	
 	// here happens a lot of magic (xbox controller magic included)
 	void Update () {
@@ -137,13 +139,13 @@ public class PlayerMove : MonoBehaviour {
 			if (delta.y > 0) {
 		 
 		                //up
-						if(!Physics.Raycast(transform.position, Vector3.forward, collider.bounds.extents.x + 1f))
+				if(!Physics.Raycast(transform.position, Vector3.forward, collider.bounds.extents.x + 1f,layerMask))
 							aDir = 1;
 									
 		              } else {
 		 
 		                //down
-						if(!Physics.Raycast(transform.position, Vector3.back, collider.bounds.extents.x + 1f))
+				if(!Physics.Raycast(transform.position, Vector3.back, collider.bounds.extents.x + 1f,layerMask))
 							aDir = -1;	
 		              }
 		}
@@ -170,13 +172,13 @@ public class PlayerMove : MonoBehaviour {
 			if (delta.x > 0) {
 		 
 		                //right
-						if(!Physics.Raycast(transform.position, Vector3.right, collider.bounds.extents.x + 1f))
+				if(!Physics.Raycast(transform.position, Vector3.right, collider.bounds.extents.x + 1f,layerMask))
 							aDir = 1;
 				
 		              } else {
 		 
 		                //left
-						if(!Physics.Raycast(transform.position, Vector3.left, collider.bounds.extents.x + 1f))
+				if(!Physics.Raycast(transform.position, Vector3.left, collider.bounds.extents.x + 1f,layerMask))
 							aDir = -1;			
 		              }
 		}
