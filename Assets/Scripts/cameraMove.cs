@@ -15,14 +15,15 @@ public class cameraMove : MonoBehaviour {
 	private float[] spectrum; // audio spectrum
 	
 	private GameObject txtIngameScore;
-	public int ingameScore;
 	public bool isRunning;
+	SceneData sc;
 	
 	void Start () {
 	isRunning = true;
 	samples = new float[qSamples];
     spectrum = new float[qSamples];
 	txtIngameScore = (GameObject)Instantiate(Resources.Load("txtIngameScore"),new Vector3(1,0,0),Quaternion.identity);
+	sc = SceneData.GetInstance();
 	}
 	
 	void AnalyzeSound(){
@@ -58,10 +59,11 @@ public class cameraMove : MonoBehaviour {
 	void Update () {
 	AnalyzeSound();
 	
+
 	//Update score
 	if (isRunning){
-	ingameScore += (int)(Time.timeSinceLevelLoad/3);
-	txtIngameScore.guiText.text = ingameScore.ToString();
+	sc.roundScore += (int)(Time.timeSinceLevelLoad/3);
+	txtIngameScore.guiText.text = sc.roundScore.ToString();
 	}
 	
 	//Hard Y-Value to bypass shacky camera when moving 

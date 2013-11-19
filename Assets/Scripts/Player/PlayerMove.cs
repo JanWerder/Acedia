@@ -66,10 +66,12 @@ public class PlayerMove : MonoBehaviour {
 				speedUpTimer = 0;
 			}
 		}
-		
+
+	SceneData sc = SceneData.GetInstance();
 		
 	if(playerAlive && !checkGroundUnderneath() && !isMoving){
-		Instantiate(Resources.Load("txtGameover"));	
+		sc.uiEndgame = (GameObject)Instantiate(Resources.Load("uiEndgame"));
+		sc.isGameover = true;
 		playerAlive = false;
 	}
 	

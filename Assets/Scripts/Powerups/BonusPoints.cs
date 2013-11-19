@@ -4,9 +4,10 @@ using System.Collections;
 public class BonusPoints : IPowerupType {
 	
 	public void runPowerup(PlayerMove player){
-		
+
+		SceneData sc = SceneData.GetInstance();
 		//Raise the score by 1000 for collecting
-		((cameraMove)Camera.main.gameObject.GetComponent<cameraMove>()).ingameScore += 1000;
+		sc.roundScore += 1000;
 		
 		//show points
 		if (GameObject.Find("txtplusPoints(Clone)") == null)
