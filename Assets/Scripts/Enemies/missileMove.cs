@@ -34,7 +34,7 @@ public class missileMove : MonoBehaviour {
 		
 		//Kill the Warning Mark
 		Destroy(warningText);
-		
+		SceneData sc = SceneData.GetInstance();
 
 		if(collision.collider.gameObject.name == "player(Clone)" && maincameraScript.isRunning)
 		{
@@ -47,23 +47,24 @@ public class missileMove : MonoBehaviour {
 			}
 			else
 			{
+
+
 				//Raise the score by 100 for a dodged missile
-				((cameraMove)Camera.main.gameObject.GetComponent<cameraMove>()).ingameScore += 100;
+				sc.roundScore += 100;
 				
 				//Raise score for another 700 for destroying missile with bodycheck
-				((cameraMove)Camera.main.gameObject.GetComponent<cameraMove>()).ingameScore += 700;
-				
+				sc.roundScore += 700;
+
 				//show points
 				if (GameObject.Find("txtinfo(Clone)") == null)
 				{
 					Instantiate(Resources.Load("txtinfo"));
 				}
-				GameObject.Find("txtinfo(Clone)").guiText.text = "+ 700";
-				
+				GameObject.Find("txtinfo(Clone)").guiText.text = "+ 700";		
 			}
 		}else{
 			//Raise the score by 100 for a dodged missile
-			((cameraMove)Camera.main.gameObject.GetComponent<cameraMove>()).ingameScore += 100;
+			sc.roundScore += 100;
 		}
 		
 		//Instantiate the explosion, but give a duration so it won't take up that much memory (low runtime since your focus is not on the particles)

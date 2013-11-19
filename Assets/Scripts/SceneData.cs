@@ -6,6 +6,10 @@ public class SceneData: MonoBehaviour{
 	public GameObject goPlayer;
 	public PlayerMove coPlayer;
 	private static SceneData instance;
+	public int roundScore;
+	//useless?
+	public bool isGameover;
+	public GameObject uiEndgame;
 
 	public static SceneData GetInstance()
 	{
