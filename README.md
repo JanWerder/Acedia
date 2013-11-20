@@ -13,9 +13,9 @@ The camera displays the scene view and rotates around the level while being lock
 Player
 ---------
 The players central role is highlighted by being the target of the camera. The player is moved by swiping in a direction. The player will move correspondly to it's current position and _not_ correspondent to the camera. This should create a confusion for new players, but also do the trick to set the gameplay apart. The movement requires constant dimensional thinking and planning, which should make the game reasonably hard to play. The player can be easily killed by almost everything:
-[ x ] missiles
-[ x ] roller
-[ x ] falling of the level
+- [ x ] missiles
+- [ x ] roller
+- [ x ] falling of the level
 
 Level
 -------
