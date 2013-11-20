@@ -19,7 +19,7 @@ The players central role is highlighted by being the target of the camera. The p
 
 Level
 -------
-The level is set in space for no aparent reason. It consists out of a few planes and cubes which create the feeling of a space-station look-alike. The space setting is supported by incoming missles targeted onto certain tiles of the levels. The level on the other hands, detects the distance of the missles to the ground and displays a number, which acts like a countdown to the impact.
+The level is set in spaaace for no aparent reason. It consists out of a few planes and cubes which create the feeling of a spaaace-station look-alike. The spaaace setting is supported by incoming missles targeted onto certain tiles of the levels. The level on the other hands, detects the distance of the missles to the ground and displays a number, which acts like a countdown to the impact.
 
 Enemies
 ------------
@@ -28,7 +28,7 @@ Enemies
 Missiles are automatically launched at certain tiles of the level. On impact missiles explode, but only kill the player if he stands on the tile the missile impacted on. missiles are alsways at the same speed, so the only variation regarding difficulty is the amount of missiles launched. The amount increases heavily over time until a certain point is reached, which is considered to be hard enough, from which point on, other enemies have to the trick.
 
 ### Rollers ###
-Rollers are cylindrical enemies, which roll around the level. They have a fixed point a & b, through which the cycle. A roller doesn't to the player, nor does is stop after killing it. A Roller is spawned by randomly dropping into the level like a missile. A roller can not be killed or harmed and will therefor kill itself by rolling of the stage or shrinking into nothing after a certain time, which is determined by the advance of the player.
+Rollers are cylindrical enemies, which roll around the level. They have a fixed point a & b, through which the cycle. A roller doesn't react to the player, nor does is stop after killing it. A Roller is spawned by randomly dropping into the level like a missile. A roller can not be killed or harmed and will therefor kill itself by rolling of the stage or shrinking into nothing after a certain time, which is determined by the advance of the player.
 
 
 ## Powerups ##
