@@ -92,10 +92,14 @@ public class PlayerMove : MonoBehaviour {
 					
 			}
 		}else{
-			if (transform.position == targetPos ){
-			isMoving = false;
+
+			if (Mathf.Abs(transform.position.x - targetPos.x) < 0.01 && Mathf.Abs(transform.position.z - targetPos.z) < 0.01 ){
+
+				isMoving = false;
+
 			}else{
-			this.transform.position = Vector3.MoveTowards(this.transform.position, targetPos, playerSpeedMultiplier * Time.deltaTime * 5);	
+
+				this.transform.position = Vector3.MoveTowards(this.transform.position, targetPos, playerSpeedMultiplier * Time.deltaTime * 5);	
 			}
 			
 		}

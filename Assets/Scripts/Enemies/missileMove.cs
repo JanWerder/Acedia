@@ -42,7 +42,7 @@ public class missileMove : MonoBehaviour {
 			if(playerMove.playerInvincible == false)
 			{
 				//The Rocket just hit the player
-				Instantiate(Resources.Load("txtGameover"));
+				Instantiate(Resources.Load("uiEndgame"));
 				playerMove.playerAlive = false;
 			}
 			else
