@@ -13,8 +13,8 @@ public class JumppadBehaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Vector3.Distance(this.gameObject.transform.position, goPlayer.transform.position) <= 0.5f){
-			goPlayer.transform.rigidbody.mass = 10;
-			goPlayer.transform.rigidbody.AddForce(Vector3.up * 1000);
+			goPlayer.transform.rigidbody.velocity = Vector3.zero;
+			goPlayer.transform.rigidbody.AddForce(Vector3.up * 23000000);
 		}
 	}
 }
