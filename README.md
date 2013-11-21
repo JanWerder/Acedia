@@ -43,3 +43,20 @@ Ad the name suggest, the invincible powerup, protects the player from all damage
 
 ### Speed ###
 The speed boost, gives the player addional movement speed for a certain amount of seconds. The amount is not scaled with difficulty, but with upgrades
+
+## Tiles ##
+
+Tiles make up the level and have therefore a central position in the game. 
+
+### Normal Tile ### 
+The normal Tile allows all kind of movement on the same level as the tile itself
+
+### Ice Tile ###
+The Ice Tile slides the player over the tile, effectivly disallowing the player to change its directions or speed. It may result in the player sliding into an enemy and dieing.
+
+### Jumppad/Air Tile ##
+The Jumppad Tile is similar to the normal tile, but launches the player into the air. The height offset is exactly enough for the player to reach 1 higher level. 
+
+### Spikey Tile ###
+The Spikey Tile is a normal Tile, but with 9 whole in it. In a periodical time interval spikeys come out of the wholes and kill the player in case he's on the tile at that moment. While the tile is predictable, it still sets a alertness for the player to beware of this tile
+
