@@ -42,7 +42,7 @@ The score boost give the player additional 1000 Points on pickup. The score amou
 Ad the name suggest, the invincible powerup, protects the player from all damage during its activation. Dropping of the stage, will respawn the player at a random location and running into a roller, will deflect him. The time is not scaled with difficulty, but with upgrades
 
 ### Speed ###
-The speed boost, gives the player addional movement speed for a certain amount of seconds. The amount is not scaled with difficulty, but with upgrades
+The speed boost, gives the player addional movement speed for a certain amount of seconds. The amount is not scaled with difficulty, but with upgrades. When the player runs off the level with a speed boost, he stays in mid-air for a couple of seconds before he falls down and dies. This should allow compensation for the lost control over the character
 
 ## Tiles ##
 
@@ -54,9 +54,29 @@ The normal Tile allows all kind of movement on the same level as the tile itself
 ### Ice Tile ###
 The Ice Tile slides the player over the tile, effectivly disallowing the player to change its directions or speed. It may result in the player sliding into an enemy and dieing.
 
-### Jumppad/Air Tile ##
+### Jumppad/Air Tile ###
 The Jumppad Tile is similar to the normal tile, but launches the player into the air. The height offset is exactly enough for the player to reach 1 higher level. 
 
 ### Spikey Tile ###
 The Spikey Tile is a normal Tile, but with 9 whole in it. In a periodical time interval spikeys come out of the wholes and kill the player in case he's on the tile at that moment. While the tile is predictable, it still sets a alertness for the player to beware of this tile
 
+
+## Upgrades ##
+
+###Powerup Upgrades###
+
+The player can upgrade all existing Powerups
+
+####Score Boost####
+Linear increase in the score value
+
+####Invincible####
+Linear increase in the duration value
+
+####Speed####
+Linear increase in the fall off value, which determines how long the player stays in mid-air, before dieing and falling into space
+
+###Statistic Upgrades###
+
+###Less missiles###
+Decreases the amount of concurrent missiles
