@@ -44,6 +44,17 @@ Ad the name suggest, the invincible powerup, protects the player from all damage
 ### Speed ###
 The speed boost, gives the player addional movement speed for a certain amount of seconds. The amount is not scaled with difficulty, but with upgrades. When the player runs off the level with a speed boost, he stays in mid-air for a couple of seconds before he falls down and dies. This should allow compensation for the lost control over the character
 
+## Evil Powerups (TBD)##
+
+Evil Powerups are similar to the Mario Kart Fake Itembox, meaning the appear to be normal Powerups, but turn red and dangerous, when the player gets close to them.
+
+## Camera  180 Turnaround ## 
+The camera turns 180° instantly, leaving the player cluesless how to navigate
+
+## Spaceship Driveby ## 
+A Spaceship flys right in front of the camera, wait there for around half a second and takes of again. Similar to the Squid in Mario Kart, this should get Player to guess further actions
+
+
 ## Tiles ##
 
 Tiles make up the level and have therefore a central position in the game. 
