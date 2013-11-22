@@ -48,10 +48,10 @@ The speed boost, gives the player addional movement speed for a certain amount o
 
 Evil Powerups are similar to the Mario Kart Fake Itembox, meaning the appear to be normal Powerups, but turn red and dangerous, when the player gets close to them.
 
-## Camera  180 Turnaround ## 
+### Camera  180 Turnaround ###
 The camera turns 180° instantly, leaving the player cluesless how to navigate
 
-## Spaceship Driveby ## 
+### Spaceship Driveby ###
 A Spaceship flys right in front of the camera, wait there for around half a second and takes of again. Similar to the Squid in Mario Kart, this should get Player to guess further actions
 
 
@@ -59,7 +59,7 @@ A Spaceship flys right in front of the camera, wait there for around half a seco
 
 Tiles make up the level and have therefore a central position in the game. 
 
-### Normal Tile ### 
+### Normal Tile###
 The normal Tile allows all kind of movement on the same level as the tile itself
 
 ### Ice Tile ###
