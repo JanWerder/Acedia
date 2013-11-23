@@ -1,11 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Tiles\JumppadBehaviour.cs">
     <Files>
-      <File FileName="Assets\Scripts\Tiles\JumppadBehaviour.cs" Line="17" Column="4" />
-      <File FileName="Assets\Scripts\Player\PlayerMove.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemies\missileMove.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Enemies\missileLaunch.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Tiles\JumppadBehaviour.cs" Line="18" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
