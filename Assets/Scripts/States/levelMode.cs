@@ -59,7 +59,7 @@ public class levelMode: MonoBehaviour {
 			#region Read properties
 			if(currentline.Contains("#")){
 				if(currentline.Contains("jumppads")){
-					MatchCollection match = Regex.Matches(currentline.Substring(9), "[0-9][,][0-9]");
+					MatchCollection match = Regex.Matches(currentline.Substring(9), "[0-9]+[,][0-9]+");
 					foreach (Match c in match){
 						//long coordinate check
 						int coordinateLength = this.ParseLength(c.Value);
@@ -69,7 +69,19 @@ public class levelMode: MonoBehaviour {
 						//TODO: Jump via coordinates or collision??
 					}
 				}
-			}else{
+				else if (currentline.Contains("iceblocks"))
+				{
+					MatchCollection match = Regex.Matches(currentline.Substring(10), "[0-9]+[,][0-9]+");
+					foreach (Match c in match){
+						//long coordinate check
+						int coordinateLength = this.ParseLength(c.Value);
+						//+1 for comma
+						Vector2 co = new Vector2(float.Parse(c.Value.Substring(0,coordinateLength)), float.Parse(c.Value.Substring(coordinateLength+1)));
+						Instantiate(Resources.Load("iceblock"),new Vector3(co.x,-4.5f,co.y),Quaternion.identity * Quaternion.Euler(new Vector3(-90,0,0)));
+					}
+				}
+			}
+			else{
 			#endregion
 
 				for (int j = 0;j < columncount; j++)
@@ -83,7 +95,12 @@ public class levelMode: MonoBehaviour {
 		
 		sr.Close();
 		//readout end
-		
+
+		//loop through all iceblocks to displace blocks with tiles, put more blocks above and remove normal blocks that collide
+		foreach(GameObject iceObject in GameObject.FindGameObjectsWithTag("ice"))
+		{
+			//not done yet
+		}
 		
 		// loop through the arrays and spawn a tile whenever there is a 1 and spawn blocks if theres a higher number
 		for (int i = 0;i < currentmap.GetLength(0);i++ )
