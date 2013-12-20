@@ -6,6 +6,7 @@ public class gameoverShow : MonoBehaviour {
 	private cameraMove maincamera;
 	Rect tryAgainPos;
 	Rect progressPos;
+	Rect homeUiPos;
 	Rect progressFillPos;
 	float progressFillWidth = 1024/2.175f;
 
@@ -28,6 +29,7 @@ public class gameoverShow : MonoBehaviour {
 	this.gameObject.guiText.text += "\n" + sc.roundScore;
 	tryAgainPos = new Rect(Screen.width/2-(1024/2/2f),Screen.height/2+200, 1024/2,128/1.3f);
 	progressPos = new Rect(Screen.width/2-(1024/2/2f),Screen.height/2+300, 1024/2,128/1.3f);
+		homeUiPos = new Rect(Screen.width-80,0,80,80);
 	
 
 	//Data Storage
@@ -81,9 +83,16 @@ public class gameoverShow : MonoBehaviour {
 		GUI.DrawTexture(progressPos, (Texture2D)Resources.Load("Menu/progressbar")); 
 		GUI.DrawTexture(progressFillPos, (Texture2D)Resources.Load("Menu/progressbar_fill")); 
 
+		GUI.DrawTexture(homeUiPos, (Texture2D)Resources.Load("Menu/ui/corner")); 
+		GUI.DrawTexture(new Rect(Screen.width-64,0,64,64), (Texture2D)Resources.Load("Menu/ui/home")); 
+
 		if(tryAgainPos.Contains(mousePos) && Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
 		{
 			Application.LoadLevel(Application.loadedLevel);
+		}
+		if(homeUiPos.Contains(mousePos) && Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+		{
+			Application.LoadLevel("mainMenu");
 		}
 	}
 }
