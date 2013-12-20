@@ -19,7 +19,14 @@ public class gameoverShow : MonoBehaviour {
 	private int gainedExp = 0;
 	private int totalLevelExp = 0;
 	private int gainedOldExp = 0;
-	
+
+	//for the endscreen
+	private int calcExp;
+	private int level;
+	private int newExp;
+
+	private GUISkin customSkin = (GUISkin)Resources.Load("Menu/gameoverStyle");
+
 	// Use this for initialization
 	void Start () {
 	maincamera = ((cameraMove)Camera.main.gameObject.GetComponent("cameraMove"));	
@@ -28,8 +35,8 @@ public class gameoverShow : MonoBehaviour {
 	SceneData sc = SceneData.GetInstance();
 	this.gameObject.guiText.text += "\n" + sc.roundScore;
 	tryAgainPos = new Rect(Screen.width/2-(1024/2/2f),Screen.height/2+200, 1024/2,128/1.3f);
-	progressPos = new Rect(Screen.width/2-(1024/2/2f),Screen.height/2+300, 1024/2,128/1.3f);
-		homeUiPos = new Rect(Screen.width-80,0,80,80);
+	progressPos = new Rect(Screen.width/2-(1024/2/2f),tryAgainPos.y-100, 1024/2,128/1.3f);
+	homeUiPos = new Rect(Screen.width-80,0,80,80);
 	
 
 	//Data Storage
@@ -37,9 +44,9 @@ public class gameoverShow : MonoBehaviour {
 			PlayerPrefs.SetInt("totalExp", sc.roundScore);
 		}else{
 			int oldExp =  PlayerPrefs.GetInt("totalExp");
-			int newExp = sc.roundScore;			
-			int calcExp = oldExp + newExp;
-			int level = (int)(0.01f * Mathf.Sqrt(calcExp));
+			newExp = sc.roundScore;			
+			calcExp = oldExp + newExp;
+			level = (int)(0.01f * Mathf.Sqrt(calcExp));
 
 
 			while((int)(0.01f * Mathf.Sqrt(calcExp + missingExp)) <= level)
@@ -75,9 +82,21 @@ public class gameoverShow : MonoBehaviour {
 	if (progressMultiplieroldExp <= progressMultiplier){
 			progressMultiplieroldExp += 0.01f;
 	} 
-		progressFillPos = new Rect(Screen.width/2-(1024/2/2f-20),Screen.height/2+335, progressFillWidth * progressMultiplieroldExp,128/4f);
+		progressFillPos = new Rect(Screen.width/2-(1024/2/2f-20),tryAgainPos.y-65, progressFillWidth * progressMultiplieroldExp,128/4f);
 	}
 	void OnGUI(){
+		GUI.skin = customSkin;
+
+		//42x22
+		for (int j= 0; j*22 <= Screen.height; j++){
+			
+			for(int i = 0; i*42 <= Screen.width; i++){
+				GUI.DrawTexture(new Rect(i*42,j*22,42,22), (Texture2D)Resources.Load("Menu/ui/bo_play_pattern_trans")); 
+			}
+		}
+		 
+		GUI.Label(new Rect(progressPos.x+progressPos.width/10 ,(-tryAgainPos.y+200),progressPos.width,Screen.height),"<i>Gameover</i>\nScore: " + newExp + "\n" + "Your Exp: " + calcExp + "\n<b>Level: " + level + "</b>");
+
 		Vector2 mousePos = new Vector2(Input.mousePosition.x,Screen.height - Input.mousePosition.y); 
 		GUI.DrawTexture(tryAgainPos, (Texture2D)Resources.Load("Menu/tryagain_button")); 
 		GUI.DrawTexture(progressPos, (Texture2D)Resources.Load("Menu/progressbar")); 
@@ -85,6 +104,8 @@ public class gameoverShow : MonoBehaviour {
 
 		GUI.DrawTexture(homeUiPos, (Texture2D)Resources.Load("Menu/ui/corner")); 
 		GUI.DrawTexture(new Rect(Screen.width-64,0,64,64), (Texture2D)Resources.Load("Menu/ui/home")); 
+
+
 
 		if(tryAgainPos.Contains(mousePos) && Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
 		{
