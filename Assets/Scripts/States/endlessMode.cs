@@ -22,6 +22,8 @@ public class endlessMode : MonoBehaviour {
 		{1,0,1,1,1,2},
 		{1,1,1,1,0,3}
 	};
+
+		SceneData.GetInstance().currentmap = currentmap;
 	
 	// loop through the arrays and spawn a tile whenever there is a 1 and spawn blocks if theres a higher number
 		for (int i = 0;i < currentmap.GetLength(0);i++ )
@@ -63,7 +65,8 @@ public class endlessMode : MonoBehaviour {
 	//PlayerSpawn
 	Instantiate(Resources.Load("player"), (Vector3)possibleLocations[Random.Range(0,possibleLocations.Count)]+new Vector3(0,1,0), Quaternion.identity);
 	//transfer the possible Locations
-    ((missileLaunch)Camera.main.GetComponent("missileLaunch")).possibleLocations = possibleLocations;	
+	//Mode Diff
+	((EndlessDifficultyDirector)Camera.main.GetComponent("EndlessDifficultyDirector")).possibleLocations = possibleLocations;	
 	((powerupspawn)Camera.main.GetComponent("powerupspawn")).possibleLocations = possibleLocations;
 
 	

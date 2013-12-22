@@ -11,6 +11,8 @@ public class SceneData: MonoBehaviour{
 	public bool isGameover;
 	public GameObject uiEndgame;
 
+	public int[,] currentmap;
+
 	public static SceneData GetInstance()
 	{
 		if (!instance)

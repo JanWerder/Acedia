@@ -151,10 +151,10 @@ GameObject:
   - 114: {fileID: 1605511105}
   - 45: {fileID: 1605511106}
   - 114: {fileID: 1605511107}
-  - 114: {fileID: 1605511108}
   - 82: {fileID: 1605511110}
   - 114: {fileID: 1605511109}
   - 114: {fileID: 1605511111}
+  - 114: {fileID: 1605511112}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -257,20 +257,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DBMulti: 7
   isRunning: 0
---- !u!114 &1605511108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1605511099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6a5f7d14cc44da4e850e1d07896f146, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 0
-  timermax: 3
-  percentage: .899999976
 --- !u!114 &1605511109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,3 +344,18 @@ MonoBehaviour:
   roundScore: 0
   isGameover: 0
   uiEndgame: {fileID: 0}
+--- !u!114 &1605511112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1605511099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d67181c15914042a5f73a05ce4934a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  timermax: 3
+  percentage: .899999976
+  difficulty: 0
