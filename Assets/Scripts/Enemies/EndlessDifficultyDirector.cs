@@ -52,7 +52,7 @@ public class EndlessDifficultyDirector : MonoBehaviour {
 			}
 
 			field.y += 15;
-			GameObject roller = Instantiate(Resources.Load("Enemies/roller"), field,  Quaternion.Euler(new Vector3(90,0,0)));
+			GameObject roller = (GameObject)Instantiate(Resources.Load("Enemies/roller"), field,  Quaternion.Euler(new Vector3(90,0,0)));
 			RollerAI rollerAi = roller.GetComponent<RollerAI>();
 			rollerAi.road = road;
 		}
