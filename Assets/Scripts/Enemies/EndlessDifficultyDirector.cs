@@ -46,14 +46,15 @@ public class EndlessDifficultyDirector : MonoBehaviour {
 			Vector3 field = road[0];
 
 			//Set the rotation relative to the road
-			int rotation = 0;
+			int rotation = 90;
 			if(road[0].x == road[1].x){
-				rotation = 90;
+				rotation = 0;
 			}
 
 			field.y += 15;
 			GameObject roller = (GameObject)Instantiate(Resources.Load("Enemies/roller"), field,  Quaternion.Euler(new Vector3(90,0,0)));
 			RollerAI rollerAi = roller.GetComponent<RollerAI>();
+			Debug.Log (road[0] + "" + road[1]);
 			rollerAi.road = road;
 		}
 	}
