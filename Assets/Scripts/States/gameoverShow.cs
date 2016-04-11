@@ -33,7 +33,7 @@ public class gameoverShow : MonoBehaviour {
 	maincamera.isRunning = false;
 
 	SceneData sc = SceneData.GetInstance();
-	this.gameObject.guiText.text += "\n" + sc.roundScore;
+	this.gameObject.GetComponent<GUIText>().text += "\n" + sc.roundScore;
 	tryAgainPos = new Rect(Screen.width/2-(1024/2/2f),Screen.height/2+200, 1024/2,128/1.3f);
 	progressPos = new Rect(Screen.width/2-(1024/2/2f),tryAgainPos.y-100, 1024/2,128/1.3f);
 	homeUiPos = new Rect(Screen.width-80,0,80,80);
@@ -70,7 +70,7 @@ public class gameoverShow : MonoBehaviour {
 			progressMultiplieroldExp = ((float)gainedOldExp)/((float)totalLevelExp);
 			progressMultiplier = ((float)gainedExp)/((float)totalLevelExp);
 
-			this.gameObject.guiText.text += "\nYour EXP: " + calcExp + "\nLevel: " + level;
+			this.gameObject.GetComponent<GUIText>().text += "\nYour EXP: " + calcExp + "\nLevel: " + level;
 			PlayerPrefs.SetInt("totalExp", calcExp);
 
 

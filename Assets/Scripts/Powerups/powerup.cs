@@ -70,10 +70,10 @@ public class powerup : MonoBehaviour {
 		destroyed = true;
 		foreach (Transform child in transform)
 		{
-    		child.rigidbody.useGravity = true;
+    		child.GetComponent<Rigidbody>().useGravity = true;
 			Destroy(child.gameObject, Random.Range(1,11)); //Destroy children by and by
 		}
-		rigidbody.useGravity = true;
+		GetComponent<Rigidbody>().useGravity = true;
 		Destroy(gameObject, 10); //Destroy powerup in seconds
 	}
 }

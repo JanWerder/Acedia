@@ -14,7 +14,7 @@ public class PowerupSprint : IPowerupType {
 		{
 			GameObject.Instantiate(Resources.Load("txtinfo"));
 		}
-		GameObject.Find("txtinfo(Clone)").guiText.text = "SPEED++";
+		GameObject.Find("txtinfo(Clone)").GetComponent<GUIText>().text = "SPEED++";
 		
 	}
 	

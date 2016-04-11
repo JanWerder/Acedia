@@ -60,7 +60,7 @@ public class missileMove : MonoBehaviour {
 				{
 					Instantiate(Resources.Load("txtinfo"));
 				}
-				GameObject.Find("txtinfo(Clone)").guiText.text = "+ 700";		
+				GameObject.Find("txtinfo(Clone)").GetComponent<GUIText>().text = "+ 700";		
 			}
 		}else{
 			//Raise the score by 100 for a dodged missile

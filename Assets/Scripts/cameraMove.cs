@@ -27,7 +27,7 @@ public class cameraMove : MonoBehaviour {
 	}
 	
 	void AnalyzeSound(){
-    audio.GetOutputData(samples, 0); // fill array with samples
+    GetComponent<AudioSource>().GetOutputData(samples, 0); // fill array with samples
     int i;
     float sum = 0;
     for (i=0; i < qSamples; i++){
@@ -37,7 +37,7 @@ public class cameraMove : MonoBehaviour {
     dbValue = 20*Mathf.Log10(rmsValue/refValue); // calculate dB
     if (dbValue < -160) dbValue = -160; // clamp it to -160dB min
     // get sound spectrum (references audiosource of camera)
-    audio.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+    GetComponent<AudioSource>().GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
     float maxV = 0;
     int maxN = 0;
     for (i=0; i < qSamples; i++){ // find max 
@@ -63,7 +63,7 @@ public class cameraMove : MonoBehaviour {
 	//Update score
 	if (isRunning){
 	sc.roundScore += (int)(Time.timeSinceLevelLoad/3);
-	txtIngameScore.guiText.text = sc.roundScore.ToString();
+	txtIngameScore.GetComponent<GUIText>().text = sc.roundScore.ToString();
 	}
 	
 	//Hard Y-Value to bypass shacky camera when moving 

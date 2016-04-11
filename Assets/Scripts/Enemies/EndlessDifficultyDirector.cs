@@ -37,30 +37,38 @@ public class EndlessDifficultyDirector : MonoBehaviour {
 			}
 		}
 
-		if(difficulty > 5 && enemySpawnDelay > 10){
-			difficulty *= 1.5f;
+        //if(difficulty > 5 && enemySpawnDelay > 10){
+        if (difficulty > 1 && enemySpawnDelay > 5)
+        {
+            difficulty *= 1.5f;
 			enemySpawnDelay = 0;
 
 
-			Vector3[] road = calcRollerRoad();
-			Vector3 field = road[0];
+            calcAllRollerRoads();
+
+            Vector3[] road = (Vector3[])allRoutes[(int)(Random.value * (allRoutes.Count+1))];
+            Vector3 field = road[0];
 
 			//Set the rotation relative to the road
-			int rotation = 90;
+			int rotation = 0;
 			if(road[0].x == road[1].x){
-				rotation = 0;
+				rotation = 90;
 			}
 
 			field.y += 15;
-			GameObject roller = (GameObject)Instantiate(Resources.Load("Enemies/roller"), field,  Quaternion.Euler(new Vector3(90,0,0)));
+			GameObject roller = (GameObject)Instantiate(Resources.Load("Enemies/roller"), field,  Quaternion.Euler(new Vector3(90, rotation, 0)));
 			RollerAI rollerAi = roller.GetComponent<RollerAI>();
 			Debug.Log (road[0] + "" + road[1]);
 			rollerAi.road = road;
 		}
 	}
 
-	private Vector3[] calcRollerRoad(){
-		int[,] currentmap = SceneData.GetInstance().currentmap;
+    private ArrayList allRoutes = new ArrayList();
+
+	private void calcAllRollerRoads(){
+        allRoutes.Clear();
+
+        int[,] currentmap = SceneData.GetInstance().currentmap;
 		ArrayList startEnd = new ArrayList();
 
 		int trackcounter = 0;
@@ -70,6 +78,12 @@ public class EndlessDifficultyDirector : MonoBehaviour {
 		{
 			for (int j = 0; j < currentmap.GetLength(1); j++)
 			{ 
+                if (i != start[0])
+                {
+                    trackcounter = 0;
+                    start[0] = 0;//x
+                    start[1] = 0;//z
+                }
 				if(currentmap[i,j] == 1){
 					if(trackcounter == 0){
 					start[0] = i;//x
@@ -83,18 +97,56 @@ public class EndlessDifficultyDirector : MonoBehaviour {
 					start[1] = 0;//z
 				}
 				if(trackcounter == 3 && start[0] != 0 && start[1] != 0){
-					Vector3[] vec = new Vector3[2];
+                    Vector3[] vec = new Vector3[2];
 					vec[0] = new Vector3(start[0],-5,start[1]);
 					vec[1] = new Vector3(i,-5,j);
-					startEnd.Add(vec);
-					trackcounter = 0;
+                    allRoutes.Add(vec);
+                    trackcounter = 0;                
 					start[0] = 0;//x
 					start[1] = 0;//z
 				}
 			}
 		}
 
+        for (int i = 0; i < currentmap.GetLength(1); i++)
+        {
+            for (int j = 0; j < currentmap.GetLength(0); j++)
+            {
+                if (i != start[0])
+                {
+                    trackcounter = 0;
+                    start[0] = 0;//x
+                    start[1] = 0;//z
+                }
+                if (currentmap[j, i] == 1)
+                {
+                    if (trackcounter == 0)
+                    {
+                        start[0] = j;//x
+                        start[1] = i;//z
+                    }
+                    if (trackcounter <= 2)
+                        trackcounter++;
+                }
+                else
+                {
+                    trackcounter = 0;
+                    start[0] = 0;//x
+                    start[1] = 0;//z
+                }
+                if (trackcounter == 3 && start[0] != 0 && start[1] != 0)
+                {
+                    Vector3[] vec = new Vector3[2];
+                    vec[0] = new Vector3(start[0], -5, start[1]);
+                    vec[1] = new Vector3(j, -5, i);
+                    allRoutes.Add(vec);
+                    trackcounter = 0;
+                    start[0] = 0;//x
+                    start[1] = 0;//z
+                }
+            }
+        }
 
-		return (Vector3[])startEnd[(int)(Random.value*(startEnd.Count))];
-	}
+
+    }
 }

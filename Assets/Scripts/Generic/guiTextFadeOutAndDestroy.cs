@@ -11,11 +11,11 @@ public class guiTextFadeOutAndDestroy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if(gameObject.guiText.material.color.a >=0)
+		if(gameObject.GetComponent<GUIText>().material.color.a >=0)
 		{
-			Color color = gameObject.guiText.material.color;
+			Color color = gameObject.GetComponent<GUIText>().material.color;
 			color.a -= 0.04f;
-       		gameObject.guiText.material.color = color;
+       		gameObject.GetComponent<GUIText>().material.color = color;
 		}
 		else
 			Destroy(gameObject);

@@ -11,7 +11,7 @@ public class RollerAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rigidbody.mass = 10000000;
+		GetComponent<Rigidbody>().mass = 10000000;
 	}
 
 

@@ -16,8 +16,8 @@ public class JumppadBehaviour : MonoBehaviour {
 		timer += Time.deltaTime;
 		if(Vector3.Distance(this.gameObject.transform.position, goPlayer.transform.position) <= 0.2 && timer > 1.0f){
 			timer = 0;
-			goPlayer.transform.rigidbody.velocity = Vector3.zero;
-			goPlayer.transform.rigidbody.AddForce(Vector3.up * 30000000);
+			goPlayer.transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+			goPlayer.transform.GetComponent<Rigidbody>().AddForce(Vector3.up * 30000000);
 
 		}
 	}

@@ -13,7 +13,7 @@ public class PowerupInvincible : IPowerupType {
 		{
 			GameObject.Instantiate(Resources.Load("txtinfo"));
 		}
-		GameObject.Find("txtinfo(Clone)").guiText.text = "INVINCIBILITY";
+		GameObject.Find("txtinfo(Clone)").GetComponent<GUIText>().text = "INVINCIBILITY";
 	}
 	
 }

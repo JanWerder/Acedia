@@ -44,14 +44,14 @@ public class PlayerMove : MonoBehaviour {
 			// Set specular shader
 			Color plusColor = new Vector4(15, 100, 15, 1);
 			invincibleColor = invincibleColor + plusColor;
-			renderer.material.shader = Shader.Find("Specular");
-			renderer.material.SetColor("_Color" , invincibleColor);
+			GetComponent<Renderer>().material.shader = Shader.Find("Specular");
+			GetComponent<Renderer>().material.SetColor("_Color" , invincibleColor);
 			
 			if(invincibleTimer >= invincibleTimermax)
 			{
 				playerInvincible = false;
 				invincibleTimer = 0;
-				renderer.material = normalPlayerMat;
+				GetComponent<Renderer>().material = normalPlayerMat;
 			}
 		}
 		
@@ -134,7 +134,7 @@ public class PlayerMove : MonoBehaviour {
 	
 	bool checkGroundUnderneath()
 	{
-			return Physics.Raycast(transform.position, -Vector3.up, collider.bounds.extents.y + 10f);
+			return Physics.Raycast(transform.position, -Vector3.up, GetComponent<Collider>().bounds.extents.y + 10f);
 	}
 	
 	void moveUpDown()
@@ -145,22 +145,22 @@ public class PlayerMove : MonoBehaviour {
 			if (delta.y > 0) {
 		 
 		                //up
-				if(!Physics.Raycast(transform.position, Vector3.forward, collider.bounds.extents.x + 1f,layerMask))
+				if(!Physics.Raycast(transform.position, Vector3.forward, GetComponent<Collider>().bounds.extents.x + 1f,layerMask))
 							aDir = 1;
 									
 		              } else {
 		 
 		                //down
-				if(!Physics.Raycast(transform.position, Vector3.back, collider.bounds.extents.x + 1f,layerMask))
+				if(!Physics.Raycast(transform.position, Vector3.back, GetComponent<Collider>().bounds.extents.x + 1f,layerMask))
 							aDir = -1;	
 		              }
 		}
 		
 		//PC
-		if(Input.GetAxis("Vertical") < -0.1f && !Physics.Raycast(transform.position, Vector3.back, collider.bounds.extents.x + 1f)){
+		if(Input.GetAxis("Vertical") < -0.1f && !Physics.Raycast(transform.position, Vector3.back, GetComponent<Collider>().bounds.extents.x + 1f)){
 						//s
 						aDir = -1;
-					}else if (Input.GetAxis("Vertical") > 0.1f && !Physics.Raycast(transform.position, Vector3.forward, collider.bounds.extents.x + 1f)) {
+					}else if (Input.GetAxis("Vertical") > 0.1f && !Physics.Raycast(transform.position, Vector3.forward, GetComponent<Collider>().bounds.extents.x + 1f)) {
 						//w
 						aDir = 1;	
 					}
@@ -178,22 +178,22 @@ public class PlayerMove : MonoBehaviour {
 			if (delta.x > 0) {
 		 
 		                //right
-				if(!Physics.Raycast(transform.position, Vector3.right, collider.bounds.extents.x + 1f,layerMask))
+				if(!Physics.Raycast(transform.position, Vector3.right, GetComponent<Collider>().bounds.extents.x + 1f,layerMask))
 							aDir = 1;
 				
 		              } else {
 		 
 		                //left
-				if(!Physics.Raycast(transform.position, Vector3.left, collider.bounds.extents.x + 1f,layerMask))
+				if(!Physics.Raycast(transform.position, Vector3.left, GetComponent<Collider>().bounds.extents.x + 1f,layerMask))
 							aDir = -1;			
 		              }
 		}
 		
 		//PC
-		if(Input.GetAxis("Horizontal") < -0.1f && !Physics.Raycast(transform.position, Vector3.left, collider.bounds.extents.x + 1f)){
+		if(Input.GetAxis("Horizontal") < -0.1f && !Physics.Raycast(transform.position, Vector3.left, GetComponent<Collider>().bounds.extents.x + 1f)){
 						//a
 						aDir = -1;
-					}else if(Input.GetAxis("Horizontal") > 0.1f && !Physics.Raycast(transform.position, Vector3.right, collider.bounds.extents.x + 1f)){
+					}else if(Input.GetAxis("Horizontal") > 0.1f && !Physics.Raycast(transform.position, Vector3.right, GetComponent<Collider>().bounds.extents.x + 1f)){
 						//d
 						aDir = 1;	
 					}

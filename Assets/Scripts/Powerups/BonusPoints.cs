@@ -14,7 +14,7 @@ public class BonusPoints : IPowerupType {
 		{
 			GameObject.Instantiate(Resources.Load("txtinfo"));
 		}
-		GameObject.Find("txtinfo(Clone)").guiText.text = "+ 1000";
+		GameObject.Find("txtinfo(Clone)").GetComponent<GUIText>().text = "+ 1000";
 	}
 	
 }
